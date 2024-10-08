@@ -1,0 +1,38 @@
+services:
+
+  web:
+    build:
+      context: ./apps/web
+    volumes:
+      - "./apps/web:/usr/src/app"
+    restart: on-failure
+    ports:
+      - "5173:5173"
+
+  php:
+    build:
+      context: ./apps/api
+    volumes:
+      - "./apps/api:/usr/src/app"
+    restart: on-failure
+    depends_on:
+      - mysql
+
+  nginx:
+    build:
+      context: ./apps/nginx
+    restart: on-failure
+    volumes:
+      - "./apps/api:/usr/src/app"
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+      - mysql
+
+  mysql:
+    image: mysql:8.4.0
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: app
