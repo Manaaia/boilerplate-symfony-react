@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "yarn"
+    directory: "/apps/web/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "composer"
+    directory: "/apps/api/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "docker"
+    directory: "/docker/"
+    schedule:
+      interval: "weekly"
