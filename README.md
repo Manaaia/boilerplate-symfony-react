@@ -23,10 +23,10 @@ Please feel free to use this boilerplate for your projects. You can simply clone
 1. Clone the repository
 2. Run `task install` to install the application
 3. Run `task start` to start the application
-4. Open `http://localhost:3000` in your browser
+4. Open `http://localhost:5173` in your browser
 
 ### Available urls
-- Client: `http://localhost:3000`
+- Client: `http://localhost:5173`
 - Server: `http://localhost`
 
 ### Next steps
