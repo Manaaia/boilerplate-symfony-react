@@ -14,7 +14,7 @@ final class Home
         return new Response('Hello World! 🌍<br/> This is the Symfony API and it is up and running as it should. Well done and happy coding!');
     }
 
-    #[Route('/api', methods: ['GET'])]
+    #[Route('/home', methods: ['GET'])]
     public function getApi(): JsonResponse
     {
         return new JsonResponse(null, Response::HTTP_OK);

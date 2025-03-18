@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost/api', {
+      const response = await fetch('http://api.localhost/home', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
