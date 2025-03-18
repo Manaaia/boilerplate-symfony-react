@@ -16,3 +16,7 @@ tasks:
   stop:
     cmds:
       - docker compose down
+
+  phpstan:
+    cmds:
+      - docker compose run --rm php vendor/bin/phpstan

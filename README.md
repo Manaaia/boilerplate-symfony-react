@@ -15,6 +15,7 @@ Please feel free to use this boilerplate for your projects. You can simply clone
 - MySQL: Database
 - Taskfile: Task runner
 - Traefik: Reverse proxy
+- PhpStan: Static analysis tool for PHP
 
 ### Requirements
 - Docker
@@ -35,6 +36,5 @@ Please feel free to use this boilerplate for your projects. You can simply clone
 - Improve Dockerfile for security
 - Add production environment
 - Introduction of Github Actions for CI/CD
-- Add static analysis tools
 - Add linters
 - Add test frameworks
