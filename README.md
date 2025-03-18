@@ -14,23 +14,24 @@ Please feel free to use this boilerplate for your projects. You can simply clone
 - Nginx: Web server
 - MySQL: Database
 - Taskfile: Task runner
+- Traefik: Reverse proxy
 
 ### Requirements
 - Docker
+- Docker Compose
 - Task
 
 ### Installation
 1. Clone the repository
 2. Run `task install` to install the application
 3. Run `task start` to start the application
-4. Open `http://localhost:5173` in your browser
+4. Open `http://localhost` in your browser
 
 ### Available urls
-- Client: `http://localhost:5173`
-- Server: `http://localhost`
+- Client: `http://localhost`
+- Server: `http://api.localhost`
 
 ### Next steps
 - Improvement on the way the client and server are served
 - Improve Dockerfile for security
-- Introduction of Traefik for routing
 - Introduction of Github Actions for CI/CD

@@ -1,5 +1,14 @@
 services:
 
+  reverse-proxy:
+    image: traefik:v3.3
+    command: --api.insecure=true --providers.docker
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
   web:
     build:
       context: ./apps/web
@@ -7,8 +16,8 @@ services:
     volumes:
       - "./apps/web:/usr/src/app"
     restart: on-failure
-    ports:
-      - "5173:5173"
+    labels:
+    - "traefik.http.routers.web.rule=Host(`localhost`)"
 
   php:
     build:
@@ -27,11 +36,10 @@ services:
     restart: on-failure
     volumes:
       - "./apps/api:/usr/src/app"
-    ports:
-      - "80:80"
     depends_on:
       - php
-      - mysql
+    labels:
+    - "traefik.http.routers.api.rule=Host(`api.localhost`)"
 
   mysql:
     image: mysql:8.4.0
