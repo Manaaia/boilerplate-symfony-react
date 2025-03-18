@@ -1,13 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [isApiResponseSuccessful, setIsApiResponseSuccessful] = useState(false)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://localhost/api', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      setIsApiResponseSuccessful(response.ok)
+    }
+    fetchData()
+  }, [])
 
   return (
     <>
+      { isApiResponseSuccessful &&
+        <>
+          <div>
+            <h1>Ah hello Adventurer! And welcome to your future project.</h1>
+            <p>If you see this message, it means that the API is up and running. Now go ahead and create some magic!</p>
+          </div>
+          <hr />
+        </>
+      }
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
