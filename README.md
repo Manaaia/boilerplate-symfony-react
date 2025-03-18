@@ -30,9 +30,8 @@ Please feel free to use this boilerplate for your projects. You can simply clone
 - Server: `http://localhost`
 
 ### Next steps
-- Improvement on the way the client and server are served (client and server urls must be logical)
+- Improvement on the way the client and server are served
 - Improve Dockerfile for security
 - Linking the client and server
 - Introduction of Traefik for routing
-- Introduction of Dependabot for dependency updates
 - Introduction of Github Actions for CI/CD
