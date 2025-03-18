@@ -32,6 +32,5 @@ Please feel free to use this boilerplate for your projects. You can simply clone
 - Server: `http://api.localhost`
 
 ### Next steps
-- Improvement on the way the client and server are served
 - Improve Dockerfile for security
 - Introduction of Github Actions for CI/CD
