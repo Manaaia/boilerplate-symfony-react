@@ -11,11 +11,12 @@ Please feel free to use this boilerplate for your projects. You can simply clone
 - Typescript: Better JS
 - Symfony: Server side (PHP)
 - Docker: Containerization
-- Nginx: Web server
+- Nginx: Web server for api (server)
+- Traefik: Reverse proxy for routing
 - MySQL: Database
 - Taskfile: Task runner
-- Traefik: Reverse proxy
-- PhpStan: Static analysis tool for PHP
+- PhpStan: Static analysis tool for PHP (setup at max level)
+- PhpCsFixer: PHP coding standards fixer
 
 ### Requirements
 - Docker

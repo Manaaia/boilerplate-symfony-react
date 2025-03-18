@@ -20,3 +20,11 @@ tasks:
   phpstan:
     cmds:
       - docker compose run --rm php vendor/bin/phpstan
+
+  cs-fix:
+    cmds:
+      - docker compose run --rm php vendor/bin/php-cs-fixer fix
+
+  cs-check:
+    cmds:
+      - docker compose run --rm php vendor/bin/php-cs-fixer fix --dry-run --diff
