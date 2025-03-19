@@ -28,3 +28,11 @@ tasks:
   cs-check:
     cmds:
       - docker compose run --rm php vendor/bin/php-cs-fixer fix --dry-run --diff
+
+  lint-fix:
+    cmds:
+      - docker compose run --rm web yarn lint --fix
+
+  lint-check:
+    cmds:
+      - docker compose run --rm web yarn lint

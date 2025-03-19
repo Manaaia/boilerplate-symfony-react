@@ -8,16 +8,20 @@ function App() {
   const [isApiResponseSuccessful, setIsApiResponseSuccessful] = useState(false)
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('http://api.localhost/home', {
+    async function fetchData() {
+      await fetch('http://api.localhost/home', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
+      }).catch((error: unknown) => {
+        console.error('API is down. Error:', error)
+        setIsApiResponseSuccessful(() => false)
+      }).then(() => {
+        setIsApiResponseSuccessful(() => true)
       })
-      setIsApiResponseSuccessful(response.ok)
     }
-    fetchData()
+    void fetchData()
   }, [])
 
   return (
@@ -32,16 +36,16 @@ function App() {
         </>
       }
       <div>
-        <a href="https://vitejs.dev" target="_blank">
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank">
+        <a href="https://react.dev" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button type="button" onClick={() => {setCount((count) => count + 1)}}>
           count is {count}
         </button>
         <p>
