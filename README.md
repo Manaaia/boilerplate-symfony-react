@@ -6,36 +6,40 @@ The purpose of this boilerplate is to provide a starting point for developing a 
 
 Please feel free to use this boilerplate for your projects. You can simply clone the repository, update the .env file, and start developing your application.
 
-### Technologies
-- ReactJs: Client side
-- Typescript: Better JS
-- Symfony: Server side (PHP)
-- Docker: Containerization
-- Nginx: Web server for api (server)
-- Traefik: Reverse proxy for routing
-- MySQL: Database
-- Taskfile: Task runner
-- PhpStan: Static analysis tool for PHP (setup at max level)
-- PhpCsFixer: PHP coding standards fixer
-
 ### Requirements
+To run this boilerplate, you only need to have the following installed on your machine:
 - Docker
 - Docker Compose
 - Task
 
-### Installation
+### Getting started
 1. Clone the repository
-2. Run `task install` to install the application
-3. Run `task start` to start the application
-4. Open `http://localhost` in your browser
+2. Update the .env file with your desired values
+3. Run `task install` to install the application
+4. Run `task start` to start the application
+5. Open `http://localhost` in your browser
 
 ### Available urls
 - Client: `http://localhost`
 - Server: `http://api.localhost`
 
+### Technologies
+- ReactJs: Client side
+- Typescript: Better JS
+- Vite: Build tool for ReactJs
+- Symfony: Server side (PHP)
+- Nginx: To serve Symfony
+- Docker: Containerization
+- Traefik: Reverse proxy for routing
+- MySQL: Database
+- Taskfile: Task runner
+- PhpStan: Static analysis tool for PHP (setup at max level)
+- PhpCsFixer: PHP coding standards fixer
+- ESLint: Linter for JS
+- Dependabot: Automated dependency updates (you'll need to enable it in your repository)
+
 ### Next steps
 - Improve Dockerfile for security
 - Add production environment
 - Introduction of Github Actions for CI/CD
-- Add linters
 - Add test frameworks
