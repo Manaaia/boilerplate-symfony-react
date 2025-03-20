@@ -14,14 +14,17 @@ To run this boilerplate, you only need to have the following installed on your m
 
 ### Getting started
 1. Clone the repository
-2. Update the .env file with your desired values
-3. Run `task install` to install the application
-4. Run `task start` to start the application
-5. Open `http://localhost` in your browser
+2. Run `task install` to install the application
+3. Run `task start` to start the application
+4. Open `http://localhost` in your browser
 
 ### Available urls
 - Client: `http://localhost`
 - Server: `http://api.localhost`
+
+### How to use the linters, static analysis, and tests
+- API: see [apps/api/README.md](apps/api/README.md)
+- Client: see [apps/web/README.md](apps/web/README.md)
 
 ### Technologies
 - ReactJs: Client side
@@ -37,10 +40,10 @@ To run this boilerplate, you only need to have the following installed on your m
 - PhpCsFixer: PHP coding standards fixer
 - ESLint: Linter for JS
 - Vitest: Testing framework for Vite
+- Pest: Testing framework for PHP
 - Dependabot: Automated dependency updates (you'll need to enable it in your repository)
 
 ### Next steps
 - Improve Dockerfile for security
 - Add production environment
 - Introduction of Github Actions for CI/CD
-- Add test frameworks
