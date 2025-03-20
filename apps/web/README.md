@@ -16,7 +16,7 @@ This template uses the Babel plugin by default. If you want to use the SWC plugi
 This template demonstrate how to write test with Vitest in the `example` folder. You can run the test with the following command:
 
 ```bash
-task test
+task web:test
 ```
 
 ### Linting
@@ -30,8 +30,8 @@ This template uses ESLint with the following plugins:
 You can run the linter with the following command:
 
 ```bash
-task lint-check
-task lint-fix
+task web:lint-check
+task web:lint-fix
 ```
 
 To customize the ESLint rules, you can edit the `.eslint.config.mjs` file.

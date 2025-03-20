@@ -1,0 +1,18 @@
+version: '3'
+
+tasks:
+  static-analysis:
+    cmds:
+      - docker compose run --rm php vendor/bin/phpstan
+
+  lint-check:
+    cmds:
+      - docker compose run --rm php vendor/bin/php-cs-fixer fix --dry-run --diff
+
+  lint-fix:
+    cmds:
+      - docker compose run --rm php vendor/bin/php-cs-fixer fix
+
+  test:
+    cmds:
+      - docker compose run --rm php vendor/bin/pest

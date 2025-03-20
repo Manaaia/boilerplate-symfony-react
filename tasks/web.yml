@@ -1,0 +1,14 @@
+version: '3'
+
+tasks:
+  lint-check:
+    cmds:
+      - docker compose run --rm web yarn lint
+
+  lint-fix:
+    cmds:
+      - docker compose run --rm web yarn lint --fix
+
+  test:
+    cmds:
+      - docker compose run --rm web yarn test
