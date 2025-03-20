@@ -36,3 +36,7 @@ tasks:
   lint-check:
     cmds:
       - docker compose run --rm web yarn lint
+
+  test:
+    cmds:
+      - docker compose run --rm web yarn test
