@@ -1,10 +1,10 @@
 ## Boilerplate for dockerized client-server application
 
-**This is a work in progress. It is a good base to start developing right away but should not be used as so in production.**
+**This boilerplate is for development purposes only. It is not recommended to use it in production.**
 
 The purpose of this boilerplate is to provide a starting point for developing a client-server application with Docker, ReactJs, and Symfony. The boilerplate includes a basic setup for the client and server, as well as a Taskfile for running common tasks.
 
-Please feel free to use this boilerplate for your projects. You can simply clone the repository, update the .env file, and start developing your application.
+Please feel free to use this for your projects. You can simply clone the repository, update the .env file, and start developing your application.
 
 ### Requirements
 To run this boilerplate, you only need to have the following installed on your machine:
@@ -36,6 +36,7 @@ To run this boilerplate, you only need to have the following installed on your m
 - PhpStan: Static analysis tool for PHP (setup at max level)
 - PhpCsFixer: PHP coding standards fixer
 - ESLint: Linter for JS
+- Vitest: Testing framework for Vite
 - Dependabot: Automated dependency updates (you'll need to enable it in your repository)
 
 ### Next steps
