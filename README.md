@@ -1,6 +1,7 @@
 ## Boilerplate for dockerized client-server application
 
-**This boilerplate is for development purposes only. It is not recommended to use it in production.**
+>[!WARNING]
+>This boilerplate is for development purposes only. It is not recommended to use it in production.
 
 The purpose of this boilerplate is to provide a starting point for developing a client-server application with Docker, ReactJs, and Symfony. The boilerplate includes a basic setup for the client and server, as well as a Taskfile for running common tasks.
 
@@ -23,24 +24,31 @@ To run this boilerplate, you only need to have the following installed on your m
 - Server: `http://api.localhost`
 
 ### How to use the linters, static analysis, and tests
-- API: see [apps/api/README.md](apps/api/README.md)
-- Client: see [apps/web/README.md](apps/web/README.md)
+- API: see [API documentation](docs/api-get-started.md)
+- Client: see [Client documentation](docs/web-get-started.md)
 
 ### Technologies
+#### Client
 - ReactJs: Client side
 - Typescript: Better JS
 - Vite: Build tool for ReactJs
-- Symfony: Server side (PHP)
-- Nginx: To serve Symfony
-- Docker: Containerization
-- Traefik: Reverse proxy for routing
-- MySQL: Database
-- Taskfile: Task runner
-- PhpStan: Static analysis tool for PHP (setup at max level)
-- PhpCsFixer: PHP coding standards fixer
 - ESLint: Linter for JS
 - Vitest: Testing framework for Vite
+
+#### Server
+- Symfony: Server side (PHP)
+- Nginx: To serve Symfony
+- PhpStan: Static analysis tool for PHP (setup at max level)
+- PhpCsFixer: PHP coding standards fixer
 - Pest: Testing framework for PHP
+- MySQL: Database
+
+#### Infrastructure
+- Docker: Containerization
+- Traefik: Reverse proxy for routing
+
+#### Extras tools to make your life easier
+- Taskfile: Task runner
 - Dependabot: Automated dependency updates (you'll need to enable it in your repository)
 
 ### Next steps
