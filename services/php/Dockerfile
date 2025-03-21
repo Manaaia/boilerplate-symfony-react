@@ -1,4 +1,4 @@
-FROM composer:2.2.24 AS composer
+FROM composer:2.8.6 AS composer
 
 FROM php:8.3.12-fpm AS base
 
