@@ -24,8 +24,8 @@ To run this boilerplate, you only need to have the following installed on your m
 - Server: `http://api.localhost`
 
 ### How to use the linters, static analysis, and tests
-- API: see [apps/api/README.md](apps/api/README.md)
-- Client: see [apps/web/README.md](apps/web/README.md)
+- API: see [API documentation](docs/api-get-started.md)
+- Client: see [Client documentation](docs/web-get-started.md)
 
 ### Technologies
 #### Client
@@ -47,7 +47,7 @@ To run this boilerplate, you only need to have the following installed on your m
 - Docker: Containerization
 - Traefik: Reverse proxy for routing
 
-#### Quality
+#### Extras tools to make your life easier
 - Taskfile: Task runner
 - Dependabot: Automated dependency updates (you'll need to enable it in your repository)
 
