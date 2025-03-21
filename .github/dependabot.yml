@@ -11,6 +11,7 @@ updates:
       interval: "daily"
 
   - package-ecosystem: "docker"
-    directories: "/services/*/"
+    directories:
+      - "/services/*/"
     schedule:
       interval: "daily"
