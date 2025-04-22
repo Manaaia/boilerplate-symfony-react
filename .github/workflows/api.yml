@@ -31,9 +31,14 @@ jobs:
 
   check_files_changed:
     runs-on: ubuntu-latest
+    needs: [pre_job]
     outputs:
       api_changed: ${{ steps.check_changes.outputs.api_changed }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Check for changes in api directory and github workflows
         id: check_changes
         run: |
@@ -46,7 +51,7 @@ jobs:
 
   lint_and_tests:
     runs-on: ubuntu-latest
-    # needs: [pre_job, check_files_changed]
+    needs: [check_files_changed]
     # if: pre_job.outputs.should_skip == 'false' && check_files_changed.outputs.api_changed == 'true'
     steps:
       - name: Checkout code
