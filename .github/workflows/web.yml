@@ -31,8 +31,8 @@ jobs:
 
   check_files_changed:
     runs-on: ubuntu-latest
-    needs: pre_job
-    if: pre_job.outputs.should_skip == false
+    # needs: pre_job
+    # if: pre_job.outputs.should_skip == false
     outputs:
       web_changed: ${{ steps.check_changes.outputs.web_changed }}
     steps:
