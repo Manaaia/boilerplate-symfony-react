@@ -1,4 +1,4 @@
-name: CI API
+name: api
 run-name: ${{ github.event_name }}-${{ github.ref_name }}
 on:
   push:
@@ -15,26 +15,21 @@ on:
       - main
 
 jobs:
-  # pre_job:
-  #   runs-on: ubuntu-latest
-  #   outputs:
-  #     should_skip: ${{ steps.should_skip.outputs.should_skip }}
-  #   steps:
-  #     - name: Check if the commit message contains [skip ci]
-  #       id: should_skip
-  #       run: |
-  #         if [[ "${{ github.event.head_commit.message }}" == *"[skip ci]"* ]]; then
-  #           echo "should_skip=true" >> $GITHUB_ENV
-  #         else
-  #           echo "should_skip=false" >> $GITHUB_ENV
-  #         fi
-  #     - name: skip check
-  #       uses: fkirc/skip-duplicate-actions@v3.4.1
-  #       with:
-  #         concurrent_skipping: 'never'
-  #         paths: ["docs/**", "README.md"]
+  pre_job:
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.should_skip.outputs.should_skip }}
+    steps:
+      - name: Check if the commit message contains [skip ci]
+        id: should_skip
+        run: |
+          if [[ "${{ github.event.head_commit.message }}" == *"[skip ci]"* ]]; then
+            echo "should_skip=true" >> $GITHUB_ENV
+          else
+            echo "should_skip=false" >> $GITHUB_ENV
+          fi
 
-  lint_check:
+  lint_and_tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -47,14 +42,6 @@ jobs:
 
       - name: Run api lint check
         run: task api:lint-check
-
-  tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - uses: ./.github/actions/setup
 
       - name: Run api tests
         run: task api:test
