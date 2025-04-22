@@ -36,11 +36,11 @@ jobs:
     outputs:
       web_changed: ${{ steps.check_changes.outputs.web_changed }}
     steps:
-      - name: Check for changes in web directory
+      - name: Check for changes in web directory and github workflows
         id: check_changes
         run: |
           git fetch origin main
-          if git diff --name-only origin/main...HEAD | grep -q '^web/'; then
+          if git diff --name-only origin/main...HEAD | grep -q '^web/'|'^.github/'; then
             echo "web_changed=true" >> $GITHUB_ENV
           else
             echo "web_changed=false" >> $GITHUB_ENV
