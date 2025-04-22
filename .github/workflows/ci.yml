@@ -2,30 +2,65 @@ name: CI
 run-name: ${{ github.event_name }}-${{ github.ref_name }}
 on: [push]
 jobs:
+  # pre_job:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     should_skip: ${{ steps.should_skip.outputs.should_skip }}
+  #   steps:
+  #     - name: Check if the commit message contains [skip ci]
+  #       id: should_skip
+  #       run: |
+  #         if [[ "${{ github.event.head_commit.message }}" == *"[skip ci]"* ]]; then
+  #           echo "should_skip=true" >> $GITHUB_ENV
+  #         else
+  #           echo "should_skip=false" >> $GITHUB_ENV
+  #         fi
+  #     - name: skip check
+  #       uses: fkirc/skip-duplicate-actions@v3.4.1
+  #       with:
+  #         concurrent_skipping: 'never'
+  #         paths: ["docs/**", "README.md"]
+
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Install Task
         uses: arduino/setup-task@v2
+
       - name: Build Docker containers and install dependencies
         run: task install
+
       - name: Start Docker containers
         run: task start
 
   lint-check:
     runs-on: ubuntu-latest
+    needs: build
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Run api static analysis
         run: task api:static-analysis
+
       - name: Run api lint check
         run: task api:lint-check
+
       - name: Run web lint check
         run: task web:lint-check
 
   tests:
     runs-on: ubuntu-latest
+    needs: [build, lint-check]
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Run api tests
         run: task api:test
+
       - name: Run web tests
         run: task web:test
