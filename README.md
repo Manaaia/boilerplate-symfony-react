@@ -54,4 +54,3 @@ To run this boilerplate, you only need to have the following installed on your m
 ### Next steps
 - Improve Dockerfile for security
 - Add production environment
-- Introduction of Github Actions for CI/CD
