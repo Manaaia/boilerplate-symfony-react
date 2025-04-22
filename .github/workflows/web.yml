@@ -1,6 +1,19 @@
-name: CI
+name: CI Web
 run-name: ${{ github.event_name }}-${{ github.ref_name }}
-on: [push]
+on:
+  push:
+    paths:
+      - 'web/**'
+      - '.github/workflows/web.yml'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'web/**'
+      - '.github/workflows/web.yml'
+    branches:
+      - main
+
 jobs:
   # pre_job:
   #   runs-on: ubuntu-latest
@@ -29,12 +42,6 @@ jobs:
 
       - uses: ./.github/actions/setup
 
-      - name: Run api static analysis
-        run: task api:static-analysis
-
-      - name: Run api lint check
-        run: task api:lint-check
-
       - name: Run web lint check
         run: task web:lint-check
 
@@ -45,9 +52,6 @@ jobs:
         uses: actions/checkout@v4
 
       - uses: ./.github/actions/setup
-
-      - name: Run api tests
-        run: task api:test
 
       - name: Run web tests
         run: task web:test
