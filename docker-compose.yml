@@ -21,6 +21,8 @@ services:
     build:
       context: ./apps/api
       dockerfile: ../../services/php/Dockerfile
+    environment:
+      - PHP_CS_FIXER_IGNORE_ENV=1
     volumes:
       - "./apps/api:/usr/src/app"
     restart: on-failure
