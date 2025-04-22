@@ -5,6 +5,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Install Task
+        uses: arduino/setup-task@v2
       - name: Build Docker containers and install dependencies
         run: task install
       - name: Start Docker containers
