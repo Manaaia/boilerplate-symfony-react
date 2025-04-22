@@ -44,9 +44,9 @@ jobs:
         run: |
           git fetch origin main
           if git diff --name-only HEAD^ HEAD | grep -q '^web/'; then
-            echo "web_changed=true" >> $GITHUB_ENV
+            echo "web_changed=true" >> $GITHUB_OUTPUT
           else
-            echo "web_changed=false" >> $GITHUB_ENV
+            echo "web_changed=false" >> $GITHUB_OUTPUT
           fi
 
   lint_and_tests:
