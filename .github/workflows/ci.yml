@@ -1,0 +1,29 @@
+name: CI
+run-name: ${{ github.event_name }}-${{ github.ref_name }}
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Docker containers and install dependencies
+        run: task install
+      - name: Start Docker containers
+        run: task start
+
+  lint-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run api static analysis
+        run: task api:static-analysis
+      - name: Run api lint check
+        run: task api:lint-check
+      - name: Run web lint check
+        run: task web:lint-check
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run api tests
+        run: task api:test
+      - name: Run web tests
+        run: task web:test
