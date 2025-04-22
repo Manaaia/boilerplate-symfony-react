@@ -28,6 +28,14 @@ jobs:
           else
             echo "should_skip=false" >> $GITHUB_ENV
           fi
+      - name: Check if files changed in web
+        id: check_files
+        run: |
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -qE '^web/'; then
+            echo "should_skip=true" >> $GITHUB_ENV
+          else
+            echo "should_skip=false" >> $GITHUB_ENV
+          fi
 
   lint_and_tests:
     runs-on: ubuntu-latest
