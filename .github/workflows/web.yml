@@ -34,6 +34,10 @@ jobs:
     outputs:
       web_changed: ${{ steps.check_changes.outputs.web_changed }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Check for changes in web directory and github workflows
         id: check_changes
         run: |
