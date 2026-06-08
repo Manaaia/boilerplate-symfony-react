@@ -1,6 +1,6 @@
 FROM composer:2.10.1 AS composer
 
-FROM php:8.5.6-fpm AS base
+FROM php:8.5.7-fpm AS base
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
